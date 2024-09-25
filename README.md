@@ -61,7 +61,7 @@ o	Save the final modified image to your local directory.
 
 ### i)Read and Display an Image
 
-```
+```python
 import cv2
 # Read the image
 image = cv2.imread('Lokesh.JPG')
@@ -127,7 +127,10 @@ cv2.waitKey(0)
 # Clean up windows
 cv2.destroyAllWindows()
 ```
-
+![image](https://github.com/user-attachments/assets/56416a64-fc63-4ef2-ad24-26f0126984f4)
+![image](https://github.com/user-attachments/assets/b1a57435-f2ba-489f-b5be-a98f54d9df53)
+![image](https://github.com/user-attachments/assets/a1a956e6-ce4a-4298-bba6-5cd8fd346819)
+![image](https://github.com/user-attachments/assets/12627465-7ccb-4d87-b4d3-938f6da6061d)
 
 <br>
 <br>
@@ -135,37 +138,47 @@ cv2.destroyAllWindows()
 ### iii)Image Color Conversion
 
 ```python
+import cv2
+
 # Read the image
 image = cv2.imread("Lokesh.JPG")
 
 # Convert to HSV color space
 img_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-# Convert to grayscale
-img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-
-# Display the HSV image
 cv2.imshow('Image Window (HSV)', img_hsv)
+cv2.imwrite('Lokesh_HSV.jpg', img_hsv)  # Save HSV image
 cv2.waitKey(0)
-cv2.destroyAllWindows()
+
+# Convert to grayscale
+img_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+cv2.imshow('Grayscale Image', img_gray)
+cv2.imwrite('Lokesh_Gray.jpg', img_gray)  # Save grayscale image
+cv2.waitKey(0)
 
 # Convert the image from RGB to YCrCb and display it
 ycrcb_image = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
 cv2.imshow('YCrCb Image', ycrcb_image)
+cv2.imwrite('Lokesh_YCrCb.jpg', ycrcb_image)  # Save YCrCb image
 cv2.waitKey(0)
 
 # Convert the HSV image back to RGB and display it
 hsv_to_rgb_image = cv2.cvtColor(img_hsv, cv2.COLOR_HSV2BGR)
 cv2.imshow('HSV to RGB Image', hsv_to_rgb_image)
+cv2.imwrite('Lokesh_HSV_to_RGB.jpg', hsv_to_rgb_image)  # Save the converted RGB image
 cv2.waitKey(0)
+
+# Clean up
+cv2.destroyAllWindows()
+
 ```
 ### Convert the image from RGB to HSV and display it:
-
+![image](https://github.com/user-attachments/assets/9eb9d0f1-d03a-4474-953a-8fb7d3d48ff3)
 ### Convert the image from RGB to GRAY and display it:
-
+![image](https://github.com/user-attachments/assets/baee897c-5af8-455c-b713-a65bfd0bd60a)
 ### Convert the image from RGB to YCrCb and display it:
-
+![image](https://github.com/user-attachments/assets/d2b826c3-5c61-4cc2-bd19-3b299aa3f0e2)
 ### Convert the HSV image back to RGB and display it:
+![image](https://github.com/user-attachments/assets/454ebfb4-dc49-4392-90e6-21d024285e66)
 
 <br>
 <br>
@@ -182,7 +195,8 @@ print(f"Pixel value at (100, 100): {pixel_value}")
 image[200, 200] = [255, 255, 255]
 print(f"Modified pixel value at (200, 200): {image[200, 200]}")
 ```
-![image](https://github.com/user-attachments/assets/66bf0b1a-3b5a-4da3-a159-90b507f5eeed)
+![image](https://github.com/user-attachments/assets/68ecfe0c-2d9d-4c57-9627-a18afa44996f)
+
 <br>
 <br>
 
@@ -194,7 +208,7 @@ resized_image = cv2.resize(image, (image.shape[1] // 2, image.shape[0] // 2))
 cv2.imshow('Resized Image', resized_image)
 cv2.waitKey(0)
 ```
-![image](https://github.com/user-attachments/assets/56c20463-efc2-4869-b6a3-e50fda8cc4fa)
+![image](https://github.com/user-attachments/assets/7f241fde-e0e0-4dcb-bc7f-e4fdb89c877f)
 
 <br>
 <br>
@@ -208,7 +222,7 @@ roi = image[50:150, 50:150]
 cv2.imshow('Cropped ROI Image', roi)
 cv2.waitKey(0)
 ```
-![image](https://github.com/user-attachments/assets/c9f1404f-7951-4326-bc1b-efa8acb57da6)
+![image](https://github.com/user-attachments/assets/d380958b-561b-4f35-992d-d36bbd18e474)
 
 <br>
 <br>
@@ -228,10 +242,10 @@ cv2.waitKey(0)
 ```
 
 ### Flip the original image horizontally and display it:
-![image](https://github.com/user-attachments/assets/afc3e98b-15ef-4188-a3c9-b281eeae8db6)
+![image](https://github.com/user-attachments/assets/f42e9650-7bd1-4153-bba5-3e617de642f1)
 
 ### Flip the original image vertically and display it:
-![image](https://github.com/user-attachments/assets/07e2be4b-5245-4cc6-aa72-05e060659bc4)
+![image](https://github.com/user-attachments/assets/69c8f22f-e9c9-411a-8d1a-13a0897b1055)
 
 <br>
 <br>
@@ -244,16 +258,10 @@ output_path = 'output.jpg'
 cv2.imwrite(output_path, image_with_text)
 print(f"Modified image saved as {output_path}")
 ```
-![image](https://github.com/user-attachments/assets/6067a52f-78b8-464b-a93c-b15960bb302d)
+![image](https://github.com/user-attachments/assets/b9f19a09-ef8c-445d-aa31-cfe83440384e)
+
 <br>
 <br>
 
 ## Result:
 Thus the images are read, displayed, and written ,and color conversion was performed  successfully using the python program.
-
-
-
-
-
-
-
