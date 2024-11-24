@@ -1,4 +1,4 @@
-# COLOR_CONVERSIONS_OF-IMAGE
+# Ex-1-COLOR_CONVERSIONS_OF-IMAGE
 ## AIM
 Write a Python program using OpenCV that performs the following tasks:
 
@@ -57,9 +57,8 @@ o	Save the final modified image to your local directory.
 ### Register Number: 212222230084
 
 
-## Output:
-
-### i)Read and Display an Image
+## i)Read and Display an Image
+### Program:
 
 ```python
 import cv2
@@ -72,11 +71,12 @@ cv2.waitKey(0)
 # Destroy all windows created by OpenCV
 cv2.destroyAllWindows()
 ```
-![image](https://github.com/user-attachments/assets/c737e722-5fe5-475e-8cde-8455830a9e95)
-<br>
-<br>
+## Output:
+![image](https://github.com/user-attachments/assets/60780b34-6a32-45f2-a036-4569da419421)
 
-### ii)Draw Shapes and Add Text
+
+## ii)Draw Shapes and Add Text
+### Program:
 
 ```python
 import cv2
@@ -84,58 +84,62 @@ import cv2
 # Load the image
 img = cv2.imread("Lokesh.JPG")
 
-# Define parameters for the drawings
-start = (0, 0)
-stop = (600, 400)
-color = (100, 255, 100)
-thickness = 10
+# Image dimensions
+height, width = img.shape[:2]
 
-# 1. Draw a circle
-circle_img = img.copy()  # Create a copy of the original image
-cv2.circle(circle_img, (330, 225), 150, (255, 0, 0), 10)
-cv2.imshow('Circle', circle_img)
-cv2.imwrite('Circle_Image.jpg', circle_img)  # Save the image
-cv2.waitKey(0)
-
-# 2. Draw a rectangle
-rectangle_img = img.copy()  # Create a copy of the original image
-cv2.rectangle(rectangle_img, start, stop, color, thickness)
-cv2.imshow('Rectangle', rectangle_img)
-cv2.imwrite('Rectangle_Image.jpg', rectangle_img)  # Save the image
-cv2.waitKey(0)
-
-# 3. Draw a line
-line_img = img.copy()  # Create a copy of the original image
-cv2.line(line_img, (100, 200), (900, 100), (200, 100, 205), 10)
+# 1. Draw a line from top-left to bottom-right
+line_img = img.copy()
+cv2.line(line_img, (0, 0), (width, height), (0, 255, 0), 10)
 cv2.imshow('Line', line_img)
-cv2.imwrite('Line_Image.jpg', line_img)  # Save the image
+cv2.imwrite('Line_Image.jpg', line_img)
 cv2.waitKey(0)
 
-# 4. Add text to the image
-text_img = img.copy()  # Create a copy of the original image
+# 2. Draw a circle at the center
+circle_img = img.copy()
+cv2.circle(circle_img, (width//2, height//2), 150, (255, 0, 0), 10)
+cv2.imshow('Circle', circle_img)
+cv2.imwrite('Circle_Image.jpg', circle_img)
+cv2.waitKey(0)
+
+# 3. Draw a rectangle around the entire image
+rectangle_img = img.copy()
+cv2.rectangle(rectangle_img, (0, 0), (width, height), (100, 255, 100), 10)
+cv2.imshow('Rectangle', rectangle_img)
+cv2.imwrite('Rectangle_Image.jpg', rectangle_img)
+cv2.waitKey(0)
+
+# 4. Add text at the top-left corner
+text_img = img.copy()
 text = "OpenCV Drawing"
-org = (10, 30)  # top-left corner of the text string
+org = (10, 30)
 font = cv2.FONT_HERSHEY_SIMPLEX
 font_scale = 1
-text_color = (255, 255, 255)  # White color
+text_color = (255, 255, 255)
 thickness = 2
 cv2.putText(text_img, text, org, font, font_scale, text_color, thickness, cv2.LINE_AA)
 cv2.imshow('Text', text_img)
-cv2.imwrite('Text_Image.jpg', text_img)  # Save the image
+cv2.imwrite('Text_Image.jpg', text_img)
 cv2.waitKey(0)
 
 # Clean up windows
 cv2.destroyAllWindows()
 ```
-![image](https://github.com/user-attachments/assets/56416a64-fc63-4ef2-ad24-26f0126984f4)
-![image](https://github.com/user-attachments/assets/b1a57435-f2ba-489f-b5be-a98f54d9df53)
-![image](https://github.com/user-attachments/assets/a1a956e6-ce4a-4298-bba6-5cd8fd346819)
-![image](https://github.com/user-attachments/assets/12627465-7ccb-4d87-b4d3-938f6da6061d)
+## Output:
+![image](https://github.com/user-attachments/assets/16118472-94c2-4c95-b4bd-739a2f58b253)
 
-<br>
-<br>
 
-### iii)Image Color Conversion
+![image](https://github.com/user-attachments/assets/2105c5cd-e5ea-4e0f-aeb4-b37d097e789c)
+
+
+![image](https://github.com/user-attachments/assets/35db45a3-e521-4128-a597-ee8ef4119f29)
+
+
+![image](https://github.com/user-attachments/assets/da7fbc43-7140-4000-b87d-aa7498fafb38)
+
+
+
+## iii)Image Color Conversion
+### Program:
 
 ```python
 import cv2
@@ -169,67 +173,85 @@ cv2.waitKey(0)
 
 # Clean up
 cv2.destroyAllWindows()
-
 ```
+## Output:
 ### Convert the image from RGB to HSV and display it:
-![image](https://github.com/user-attachments/assets/9eb9d0f1-d03a-4474-953a-8fb7d3d48ff3)
+![image](https://github.com/user-attachments/assets/14f94f43-5d4b-4d42-81fd-1d9ec2e00982)
+
 ### Convert the image from RGB to GRAY and display it:
-![image](https://github.com/user-attachments/assets/baee897c-5af8-455c-b713-a65bfd0bd60a)
+![image](https://github.com/user-attachments/assets/5ce97210-4fac-4a63-98bf-565901fb5c49)
+
 ### Convert the image from RGB to YCrCb and display it:
-![image](https://github.com/user-attachments/assets/d2b826c3-5c61-4cc2-bd19-3b299aa3f0e2)
+![image](https://github.com/user-attachments/assets/348d7ab1-d6d7-4c4f-b24c-5aa0afa74880)
+
 ### Convert the HSV image back to RGB and display it:
-![image](https://github.com/user-attachments/assets/454ebfb4-dc49-4392-90e6-21d024285e66)
+![image](https://github.com/user-attachments/assets/627ac673-08df-40ba-b08d-7606cf014a16)
 
-<br>
-<br>
 
-### iv)Access and Manipulate Image Pixels
+## iv)Access and Manipulate Image Pixels
+### Program:
 
-```
-# Step 4: Access and Manipulate Image Pixels
+```python
+import cv2
+image = cv2.imread('Lokesh.jpg')
 # Access and print the value of the pixel at coordinates (100, 100)
 pixel_value = image[100, 100]
 print(f"Pixel value at (100, 100): {pixel_value}")
-
-# Modify the color of the pixel at (200, 200) to white
+# Modify the color of the pixel at (200, 200) to white (255, 255, 255)
 image[200, 200] = [255, 255, 255]
-print(f"Modified pixel value at (200, 200): {image[200, 200]}")
+# Find and print the modified pixel value
+modified_pixel_value = image[200, 200]
+print(f"Modified pixel value at (200, 200): {modified_pixel_value}")
+# Save the modified image
+cv2.imwrite('modified_image.jpg', image)
 ```
-![image](https://github.com/user-attachments/assets/68ecfe0c-2d9d-4c57-9627-a18afa44996f)
+## Output:
+![Screenshot 2024-09-25 091415](https://github.com/user-attachments/assets/ce6bf38b-0d10-4b67-9def-a4a40e374c0e)
 
-<br>
-<br>
 
-### v)Image Resizing
-```
+## v)Image Resizing
+### Program:
+
+```python
 # Image Resizing
 # Resize the original image to half its size and display it
 resized_image = cv2.resize(image, (image.shape[1] // 2, image.shape[0] // 2))
 cv2.imshow('Resized Image', resized_image)
 cv2.waitKey(0)
 ```
-![image](https://github.com/user-attachments/assets/7f241fde-e0e0-4dcb-bc7f-e4fdb89c877f)
+## Output:
+![image](https://github.com/user-attachments/assets/feb6684c-ff46-4c33-9a2f-76223c7c50cb)
 
 <br>
 <br>
 
-### vi)Image Cropping:
+## vi)Image Cropping:
+### Program:
 
-```
+```python
 # Image Cropping
-# Crop a region of interest (100x100 pixels starting at (50, 50)) and display it
-roi = image[50:150, 50:150]
-cv2.imshow('Cropped ROI Image', roi)
-cv2.waitKey(0)
+# Check if the image was loaded successfully
+if image is None:
+    print("Error: The image file could not be loaded. Check the file path and format.")
+else:
+    # Crop a region of interest (100x100 pixels starting at (50, 50))
+    roi = image[50:150, 50:150]
+    # Display the cropped image
+    cv2.imshow('Cropped ROI Image', roi)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    # Optionally, save the cropped image
+    cv2.imwrite('cropped_image.jpg', roi)
 ```
-![image](https://github.com/user-attachments/assets/d380958b-561b-4f35-992d-d36bbd18e474)
+## Output:
 
-<br>
-<br>
+![image](https://github.com/user-attachments/assets/6cf6657e-eedb-4042-96c2-a51bc05618df)
 
-### vii)Image Flipping
 
-```
+## vii)Image Flipping
+### Program:
+
+```python
 # Flip the original image horizontally and display it
 flipped_horizontally = cv2.flip(image, 1)
 cv2.imshow('Horizontally Flipped Image', flipped_horizontally)
@@ -240,28 +262,33 @@ flipped_vertically = cv2.flip(image, 0)
 cv2.imshow('Vertically Flipped Image', flipped_vertically)
 cv2.waitKey(0)
 ```
-
 ### Flip the original image horizontally and display it:
-![image](https://github.com/user-attachments/assets/f42e9650-7bd1-4153-bba5-3e617de642f1)
+## Output:
+![image](https://github.com/user-attachments/assets/5131d0f9-ace7-47d2-b5a4-752a5b6dcf96)
 
 ### Flip the original image vertically and display it:
-![image](https://github.com/user-attachments/assets/69c8f22f-e9c9-411a-8d1a-13a0897b1055)
+## Output:
+![image](https://github.com/user-attachments/assets/64dfe874-a6e4-4066-8535-4132c721bb38)
 
-<br>
-<br>
 
-### viii)Write and Save the Modified Image
+## viii)Write and Save the Modified Image
+### Program:
 
-```
+```python
 # Step 8: Write and Save the Modified Image
 output_path = 'output.jpg'
 cv2.imwrite(output_path, image_with_text)
 print(f"Modified image saved as {output_path}")
 ```
-![image](https://github.com/user-attachments/assets/b9f19a09-ef8c-445d-aa31-cfe83440384e)
-
-<br>
-<br>
+## Output:
+![image](https://github.com/user-attachments/assets/e771e2d7-3471-485e-a925-47fc72049848)
 
 ## Result:
 Thus the images are read, displayed, and written ,and color conversion was performed  successfully using the python program.
+
+
+
+
+
+
+
